@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Message</title>
+  <style>
+    body {
+    
+      background-image: url("makima.jpg");
+      background-size: contain;
+      background-repeat: repeat;
+      font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0%;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 600px;
+      text-align: center;
+      animation: fadeInUp 1.2s ease;
+      padding-top: 20px;
+    }
+    p, h1, h3 {
+      margin: 10px 0;color: rgb(23, 240, 240);
+      
+    }
+    h2 {font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: clamp(1rem, 0.35rem + 3vw, 1.6rem);
+    color: #f53192;
+  padding-top: 0px; margin-bottom: 0%; padding-bottom: 0%;}
+     h1 {
+            width: 100%;
+            height: auto;
+            color: #cf7689;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: clamp(1.5rem, 0.5rem + 4.286vw, 3.75rem);
+        }
+
+    p{ font-family:Verdana, Geneva, Tahoma, sans-serif;
+      font-size: clamp(1rem, 0.35rem + 3vw, 1.6rem);
+    
+        }
+        h3 {
+          font-size: clamp(1rem, 0.35rem + 3vw, 1.6rem);
+        }
+        h4 {
+           font-size: clamp(1.25rem, 0.6rem + 2.3vw, 1.9rem);
+           color: gold; 
+           
+        }
+        
+    button {
+      background-color:#7e0aeb;
+      color: whitesmoke;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px; 
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+     button:hover {
+      background: #ff3d68;
+    }
+
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .controls div {
+      width: 60px;
+      height: 60px;
+      margin: 5px;
+      padding-top: -0.1%;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: #f53192;
+      box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+      cursor: pointer; 
+      
+    }
+    
+    .controls div:nth-child(1){
+      transform: scale(1);
+      background: #f53192;
+      color: #fff;
+
+    }
+  
+    #progress{
+      -webkit-appearance: none;
+      width: 60%;
+      height: 6px;
+      background: #f53192;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 20px;
+    }
+
+    #progress::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      background: #f53192;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 8px solid #fff;
+      box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+    }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+
+  <script src="https://kit.fontawesome.com/b0ff6f0492.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container">
+   
+    <h2>Life Goals Activates</h2>
+    <p>Get a good 2Cr job</p>
+    <p>Paisa kamao sax sux karo</p>
+    <p>pet kamao pregnant lagte hoe</p>
+    <p>Become healthier and happier</p>
+    <h4>Date hot rich possesive goth girl with nice titty and 🍑</h4>
+    <p>Travel the world,Eat amazing food & foreign MBA</p>
+    <h3>Experience life to the fullest</h3>
+    <h3>"THE UNIVERSE HAS SPOKEN"</h3>
+    <div class="lala">
+      
+      <audio  id="song"><source src="KICK BACK.mp3" type="audio/mpeg"> </audio>
+      <input type="range" value="0" id="progress">
+      <div class="controls">
+        <div onclick="playPause()"> <i class="fa-solid fa-play" id="ctrlIcon">
+          
+
+        </i> </div>
+       
+      
+      </div>   
+    
+
+
+
+    <script>
+  let progress = document.getElementById("progress");
+  let song = document.getElementById("song");
+  let ctrlIcon = document.getElementById("ctrlIcon");
+
+  song.onloadedmetadata = function () {
+    progress.max = song.duration;
+    progress.value = song.currentTime;
+  };
+
+  function playPause() {
+    if (ctrlIcon.classList.contains("fa-pause")) {
+      song.pause();
+      ctrlIcon.classList.remove("fa-pause");
+      ctrlIcon.classList.add("fa-play");
+    } else {
+      song.play();
+      ctrlIcon.classList.add("fa-pause");
+      ctrlIcon.classList.remove("fa-play");
+    }
+  }
+
+  setInterval(() => {
+    if (!song.paused) {
+      progress.value = song.currentTime;
+    }
+  }, 500);
+
+  progress.onchange = function () {
+    song.currentTime = progress.value;
+    song.play();
+    ctrlIcon.classList.add("fa-pause");
+    ctrlIcon.classList.remove("fa-play");
+  };
+</script>
+
+
+    </div>
+
+  
+ <button onclick="window.location.href='index.html'">Start Over</button>
+  </div>
+</body>
+</html>

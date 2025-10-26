@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Stranger</title>
+  <style>
+    body {
+      background-image: url("mommy.jpg");
+      background-size: contain;
+      background-repeat: repeat;
+      font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0%;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 0.9s ease-in;
+    }
+    h1 { font-size: 2em; color: #0cf2a5;}
+    .gold-line { margin: 20px 0; color: gold; font-size: 1.4em; }
+    p {font-size: 2em; color:#47a020; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+    
+
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 2px solid #ff6f91;
+      border-radius: 8px;
+      outline: none;
+      font-size: 16px;
+    }
+   
+    button {
+      background: #7e0aeb;
+      color: rgb(245, 236, 236);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ff3d68;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .golden-line {
+      width: 80%;
+      margin: 40px auto;
+      height: 4px;
+      
+      background-color: gold; 
+      border-radius: 10px;
+      box-shadow: 0 0 8px #ffd700, 0 0 15px rgba(255, 215, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Konichiwa</h1>
+    <h1>Tanishq Saxena</h1>
+   
+    <div class="golden-line"></div>
+    <input type="password" id="passwordInput" placeholder="Enter the code🌺">
+    <br>
+    
+    <button onclick="checkPassword()">Enter the magic realm</button>
+    <div class="message" id="message"></div>
+  </div>
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const message = document.getElementById("message");
+      if (input === "28102000") {
+        message.style.color = "lightgreen";
+        message.style.fontSize ="20px";
+        message.textContent = "Welcome🌟";
+        setTimeout(() => {
+          window.location.href = "page2.html";
+        }, 1000);
+      } else {
+        message.style.color = "red";
+         message.style.fontSize ="20px";
+        message.textContent = "sahi password dalo bsdk❌";
+      }
+    }
+  </script>
+</body>
+</html>
